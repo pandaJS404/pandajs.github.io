@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>
+    数组 |
+    
+    等风也等你</title>
+  
+    <link rel="shortcut icon" href="/edit.png">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<script src="/js/pace.min.js"></script>
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+<main class="content">
+  <section class="outer">
+  <article id="post-for" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+  
+    <h1 class="article-title" itemprop="name">
+      数组
+    </h1>
+  
+  
+
+
+
+
+            </header>
+            
+
+                
+                    <div class="article-meta">
+                        <a href="/2020/04/16/for/" class="article-date">
+  <time datetime="2020-04-16T03:43:25.907Z" itemprop="datePublished">2020-04-16</time>
+</a>
+                            
+                    </div>
+                    
+
+                        
+                            
+    <div class="tocbot"></div>
+
+
+
+
+
+                                
+
+                                    <div class="article-entry" itemprop="articleBody">
+                                        
+
+
+                                            
+
+                                                
+                                                                    <h1 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h1><h2 id="所有数组都继承于Array-prototype"><a href="#所有数组都继承于Array-prototype" class="headerlink" title="所有数组都继承于Array.prototype"></a>所有数组都继承于Array.prototype</h2><h2 id="通过系统内置的Array构造函数申明数组"><a href="#通过系统内置的Array构造函数申明数组" class="headerlink" title="通过系统内置的Array构造函数申明数组"></a>通过系统内置的Array构造函数申明数组</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var arr = new Array();</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var arr = [, 1,,2,,2,5,];  //稀松数组</span><br></pre></td></tr></table></figure>
+
+<h2 id="数组的方法"><a href="#数组的方法" class="headerlink" title="数组的方法"></a>数组的方法</h2><h2 id="push方法-想数组的最后一位添加值，返回值是新数组的长度"><a href="#push方法-想数组的最后一位添加值，返回值是新数组的长度" class="headerlink" title="push方法 想数组的最后一位添加值，返回值是新数组的长度"></a>push方法 想数组的最后一位添加值，返回值是新数组的长度</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arr.push(1, 2);  //在数组最后插入 1 2</span><br></pre></td></tr></table></figure>
+<h2 id="pop-方法是删除数组的最后一位，返回值是被删除的值"><a href="#pop-方法是删除数组的最后一位，返回值是被删除的值" class="headerlink" title="pop 方法是删除数组的最后一位，返回值是被删除的值"></a>pop 方法是删除数组的最后一位，返回值是被删除的值</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arr.pop();</span><br></pre></td></tr></table></figure>
+
+<h2 id="unshift-方法是向数组的第一位添加值，添加到数组的最前面，返回值是新数组的长度"><a href="#unshift-方法是向数组的第一位添加值，添加到数组的最前面，返回值是新数组的长度" class="headerlink" title="unshift 方法是向数组的第一位添加值，添加到数组的最前面，返回值是新数组的长度"></a>unshift 方法是向数组的第一位添加值，添加到数组的最前面，返回值是新数组的长度</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arr.unshift(1, 2, 3);</span><br></pre></td></tr></table></figure>
+
+<h2 id="shift-方法是删除数组的第一位，返回值是被删除的值"><a href="#shift-方法是删除数组的第一位，返回值是被删除的值" class="headerlink" title="shift 方法是删除数组的第一位，返回值是被删除的值"></a>shift 方法是删除数组的第一位，返回值是被删除的值</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arr.shift();</span><br></pre></td></tr></table></figure>
+
+<h2 id="reverse-方法方法是反转数组，返回值是反转后的数组"><a href="#reverse-方法方法是反转数组，返回值是反转后的数组" class="headerlink" title="reverse 方法方法是反转数组，返回值是反转后的数组"></a>reverse 方法方法是反转数组，返回值是反转后的数组</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arr.reverse(); //设 arr = [1, 2, 3] =&gt; arr = [3, 2, 1]</span><br></pre></td></tr></table></figure>
+
+<h2 id="splice-方法具有三个参数"><a href="#splice-方法具有三个参数" class="headerlink" title="splice 方法具有三个参数"></a>splice 方法具有三个参数</h2><h3 id="第一个参数是要删除的位置数组下标-（负数从后面开始数）"><a href="#第一个参数是要删除的位置数组下标-（负数从后面开始数）" class="headerlink" title="第一个参数是要删除的位置数组下标 （负数从后面开始数）"></a>第一个参数是要删除的位置数组下标 （负数从后面开始数）</h3><h3 id="第二个是删除的个数（可以为0，为0则不删除）"><a href="#第二个是删除的个数（可以为0，为0则不删除）" class="headerlink" title="第二个是删除的个数（可以为0，为0则不删除）"></a>第二个是删除的个数（可以为0，为0则不删除）</h3><h3 id="第三个是在删除的位置添加新的元素进去（可以多个）"><a href="#第三个是在删除的位置添加新的元素进去（可以多个）" class="headerlink" title="第三个是在删除的位置添加新的元素进去（可以多个）"></a>第三个是在删除的位置添加新的元素进去（可以多个）</h3><h3 id="返回值是被删除值的数组"><a href="#返回值是被删除值的数组" class="headerlink" title="返回值是被删除值的数组"></a>返回值是被删除值的数组</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">arr.splice(1, 1);   // 在下标为1的位置删除一位</span><br><span class="line">arr.splice(1, 0, 1, 2);   //在下标为1的位置不删除，增加1和2</span><br><span class="line">arr.splice(0, 0, 1);    //在下标为0的位置增加1</span><br></pre></td></tr></table></figure>
+
+<h2 id="sort-方法对数组进行排序-arr-sort"><a href="#sort-方法对数组进行排序-arr-sort" class="headerlink" title="sort 方法对数组进行排序  arr.sort()"></a>sort 方法对数组进行排序  arr.sort()</h2><h2 id="括号中填入一个函数"><a href="#括号中填入一个函数" class="headerlink" title="括号中填入一个函数"></a>括号中填入一个函数</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">arr.sort(<span class="keyword">function</span> (a, b)&#123; <span class="built_in">return</span> a - b&#125;);   //<span class="built_in">return</span> 的值大于 0 是升序排列</span><br><span class="line">arr.sort(<span class="keyword">function</span> (a, b)&#123; <span class="built_in">return</span> b -a &#125;);   //<span class="built_in">return</span> 的值小于 0 是降序排列</span><br></pre></td></tr></table></figure>
+<h2 id="concat-方法连接两个数组，返回值是连接后的新数组"><a href="#concat-方法连接两个数组，返回值是连接后的新数组" class="headerlink" title="concat 方法连接两个数组，返回值是连接后的新数组"></a>concat 方法连接两个数组，返回值是连接后的新数组</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arr.concat(arr1)</span><br></pre></td></tr></table></figure>
+
+<h2 id="toString-方法是将数组转换成字符串，返回值是转换后的字符串"><a href="#toString-方法是将数组转换成字符串，返回值是转换后的字符串" class="headerlink" title="toString 方法是将数组转换成字符串，返回值是转换后的字符串"></a>toString 方法是将数组转换成字符串，返回值是转换后的字符串</h2><h2 id="join-方法是将数组转换为字符串，返回值是分割后的新字符串"><a href="#join-方法是将数组转换为字符串，返回值是分割后的新字符串" class="headerlink" title="join 方法是将数组转换为字符串，返回值是分割后的新字符串"></a>join 方法是将数组转换为字符串，返回值是分割后的新字符串</h2><h2 id="参数是规定用什么分割字符串，不写默认以-（逗号）分割"><a href="#参数是规定用什么分割字符串，不写默认以-（逗号）分割" class="headerlink" title="参数是规定用什么分割字符串，不写默认以 , （逗号）分割"></a>参数是规定用什么分割字符串，不写默认以 , （逗号）分割</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var arr = [1, 2, 3, 4];</span><br><span class="line">arr.join(<span class="string">"-"</span>);  // 1-2-3-4</span><br></pre></td></tr></table></figure>
+
+<h2 id="spit-方法将字符串转换成数组，返回值是转换后的新数组"><a href="#spit-方法将字符串转换成数组，返回值是转换后的新数组" class="headerlink" title="spit 方法将字符串转换成数组，返回值是转换后的新数组"></a>spit 方法将字符串转换成数组，返回值是转换后的新数组</h2><h2 id="第一个参数是表示以什么为分割转化为数组-默认是将所有的作为一项"><a href="#第一个参数是表示以什么为分割转化为数组-默认是将所有的作为一项" class="headerlink" title="第一个参数是表示以什么为分割转化为数组(默认是将所有的作为一项)"></a>第一个参数是表示以什么为分割转化为数组(默认是将所有的作为一项)</h2><h2 id="第二个参数表示截取数组的长度，可不填"><a href="#第二个参数表示截取数组的长度，可不填" class="headerlink" title="第二个参数表示截取数组的长度，可不填"></a>第二个参数表示截取数组的长度，可不填</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">str.split(<span class="string">","</span>);   //以逗号为间隔分割数组</span><br></pre></td></tr></table></figure>
+
+<h2 id="indexOf-查找某个元素在数组重的位置-找到返回该元素的索引，没有则返回-1"><a href="#indexOf-查找某个元素在数组重的位置-找到返回该元素的索引，没有则返回-1" class="headerlink" title="indexOf 查找某个元素在数组重的位置 找到返回该元素的索引，没有则返回 -1"></a>indexOf 查找某个元素在数组重的位置 找到返回该元素的索引，没有则返回 -1</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arr.indexOf(3);     //查找3在arr中的位置</span><br></pre></td></tr></table></figure>
+
+<h2 id="Array-from-方法是将类数组转换成数组"><a href="#Array-from-方法是将类数组转换成数组" class="headerlink" title="Array.from() 方法是将类数组转换成数组"></a>Array.from() 方法是将类数组转换成数组</h2><h2 id="参数是需要转换的类数组"><a href="#参数是需要转换的类数组" class="headerlink" title="参数是需要转换的类数组"></a>参数是需要转换的类数组</h2><h2 id="返回值是转换后的新数组"><a href="#返回值是转换后的新数组" class="headerlink" title="返回值是转换后的新数组"></a>返回值是转换后的新数组</h2><p>```bash<br>let str = “foo”;<br>let a = Array.from(str);</p>
+<p>let str = {<br>    0: “a”,<br>    1: “b”,<br>    2: “c”,<br>    length: 3,<br>    slice: Array.prototype.slice<br>}<br>console.log(Array.from(str));<br>``</p>
+
+                                                                        
+                                    </div>
+                                    <footer class="article-footer">
+                                        <a data-url="http://yoursite.com/2020/04/16/for/" data-id="ck92bqg2y0000gsu9h36r8ker" class="article-share-link">
+                                            Share
+                                        </a>
+                                        
+                                    </footer>
+
+    </div>
+
+    
+        
+  <nav class="article-nav">
+    
+      <a href="/2020/04/16/%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D/" class="article-nav-link">
+        <strong class="article-nav-caption">Newer</strong>
+        <div class="article-nav-title">
+          
+            数组去重方法集合
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2020/04/16/chrome/" class="article-nav-link">
+        <strong class="article-nav-caption">Older</strong>
+        <div class="article-nav-title">JavaScript浏览器篇</div>
+      </a>
+    
+  </nav>
+
+
+            
+
+                
+                    
+                        
+                            
+
+</article>
+</section>
+  <footer class="footer">
+  <div class="outer">
+    <div class="float-right">
+      <ul class="list-inline">
+  
+    <li><i class="fe fe-smile-alt"></i> <span id="busuanzi_value_site_uv"></span></li>
+  
+    <li><i class="fe fe-bookmark"></i> <span id="busuanzi_value_page_pv"></span></li>
+  
+</ul>
+    </div>
+    <ul class="list-inline">
+      <li>&copy; 2020 等风也等你</li>
+      <li>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></li>
+      <li>Theme  <a href="https://github.com/zhwangart/hexo-theme-ocean" target="_blank" rel="noopener">Ocean</a></li>
+    </ul>
+  </div>
+</footer>
+
+</main>
+<aside class="sidebar">
+  <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+    <div class="logo">
+      <a href="/"><img src="/images/hexo.svg" alt="等风也等你"></a>
+    </div>
+  
+  <ul class="nav nav-main">
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/">Home</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/archives">Archives</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/gallery">Gallery</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/about">About</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/links">Links</a>
+      </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link nav-item-search" title="Search">
+        <i class="fe fe-search"></i>
+        Search
+      </a>
+    </li>
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      <div class="totop" id="totop">
+  <i class="fe fe-rocket"></i>
+</div>
+    </li>
+    <li class="nav-item">
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+</aside>
+
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/jquery.justifiedGallery.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+  
+<script src="/js/tocbot.min.js"></script>
+
+  <script>
+    // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
+    tocbot.init({
+      tocSelector: '.tocbot',
+      contentSelector: '.article-entry',
+      headingSelector: 'h1, h2, h3, h4, h5, h6',
+      hasInnerContainers: true,
+      scrollSmooth: true,
+      positionFixedSelector: '.tocbot',
+      positionFixedClass: 'is-position-fixed',
+      fixedSidebarOffset: 'auto',
+    });
+  </script>
+
+
+
+<script src="/js/ocean.js"></script>
+
+
+
+</body>
+</html>

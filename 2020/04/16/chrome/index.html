@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>
+    JavaScript浏览器篇 |
+    
+    等风也等你</title>
+  
+    <link rel="shortcut icon" href="/edit.png">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<script src="/js/pace.min.js"></script>
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+<main class="content">
+  <section class="outer">
+  <article id="post-chrome" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+  
+    <h1 class="article-title" itemprop="name">
+      JavaScript浏览器篇
+    </h1>
+  
+  
+
+
+
+
+            </header>
+            
+
+                
+                    <div class="article-meta">
+                        <a href="/2020/04/16/chrome/" class="article-date">
+  <time datetime="2020-04-16T02:52:17.021Z" itemprop="datePublished">2020-04-16</time>
+</a>
+                            
+                    </div>
+                    
+
+                        
+                            
+    <div class="tocbot"></div>
+
+
+
+
+
+                                
+
+                                    <div class="article-entry" itemprop="articleBody">
+                                        
+
+
+                                            
+
+                                                
+                                                                    <h2 id="对于前端学习，必不可少的就是浏览器，基本都是和浏览器打交道"><a href="#对于前端学习，必不可少的就是浏览器，基本都是和浏览器打交道" class="headerlink" title="对于前端学习，必不可少的就是浏览器，基本都是和浏览器打交道"></a>对于前端学习，必不可少的就是浏览器，基本都是和浏览器打交道</h2><h2 id="五大主流浏览器，也就是自己拥有内核的浏览器"><a href="#五大主流浏览器，也就是自己拥有内核的浏览器" class="headerlink" title="五大主流浏览器，也就是自己拥有内核的浏览器"></a>五大主流浏览器，也就是自己拥有内核的浏览器</h2><h2 id="最老牌的IE-内核为-trident"><a href="#最老牌的IE-内核为-trident" class="headerlink" title="最老牌的IE                          内核为 trident"></a>最老牌的IE                          内核为 trident</h2><h2 id="其次是现目前最火的浏览器chrome-内核为-blink-webkit"><a href="#其次是现目前最火的浏览器chrome-内核为-blink-webkit" class="headerlink" title="其次是现目前最火的浏览器chrome    内核为    blink / webkit"></a>其次是现目前最火的浏览器chrome    内核为    blink / webkit</h2><h2 id="然后是-safari-内核为-webkit"><a href="#然后是-safari-内核为-webkit" class="headerlink" title="然后是 safari                        内核为  webkit"></a>然后是 safari                        内核为  webkit</h2><h2 id="再就是-firefox-内核为-gecko"><a href="#再就是-firefox-内核为-gecko" class="headerlink" title="再就是 firefox                    内核为  gecko"></a>再就是 firefox                    内核为  gecko</h2><h2 id="最后就是-opera-内核为-presto"><a href="#最后就是-opera-内核为-presto" class="headerlink" title="最后就是 opera                    内核为  presto"></a>最后就是 opera                    内核为  presto</h2><h1 id="ECMA"><a href="#ECMA" class="headerlink" title="ECMA"></a>ECMA</h1><h3 id="ECMA–262规范-脚本语言的规范-ECMAScript"><a href="#ECMA–262规范-脚本语言的规范-ECMAScript" class="headerlink" title="ECMA–262规范  脚本语言的规范 ECMAScript"></a>ECMA–262规范  脚本语言的规范 ECMAScript</h3><h3 id="JS是单线程编程语言"><a href="#JS是单线程编程语言" class="headerlink" title="JS是单线程编程语言"></a>JS是单线程编程语言</h3><h3 id="它可以通过轮转时间片来模拟多线程，在极短的时间内不停的切换任务"><a href="#它可以通过轮转时间片来模拟多线程，在极短的时间内不停的切换任务" class="headerlink" title="它可以通过轮转时间片来模拟多线程，在极短的时间内不停的切换任务"></a>它可以通过轮转时间片来模拟多线程，在极短的时间内不停的切换任务</h3><h3 id="ECMA命名规范："><a href="#ECMA命名规范：" class="headerlink" title="ECMA命名规范："></a>ECMA命名规范：</h3><h3 id="不能以数字开头，以字母开头，不能使用关键字、保留字"><a href="#不能以数字开头，以字母开头，不能使用关键字、保留字" class="headerlink" title="不能以数字开头，以字母开头，不能使用关键字、保留字"></a>不能以数字开头，以字母开头，不能使用关键字、保留字</h3><h3 id="使用语义化，结构化，使用小驼峰命名法"><a href="#使用语义化，结构化，使用小驼峰命名法" class="headerlink" title="使用语义化，结构化，使用小驼峰命名法"></a>使用语义化，结构化，使用小驼峰命名法</h3><h1 id="ECMA的数据类型"><a href="#ECMA的数据类型" class="headerlink" title="ECMA的数据类型"></a>ECMA的数据类型</h1><h2 id="JavaScript的数据类型分为两种"><a href="#JavaScript的数据类型分为两种" class="headerlink" title="JavaScript的数据类型分为两种"></a>JavaScript的数据类型分为两种</h2><h3 id="基本数据类型-也称为原始值"><a href="#基本数据类型-也称为原始值" class="headerlink" title="基本数据类型 也称为原始值"></a>基本数据类型 也称为原始值</h3><h4 id="Number-String-Boolean-Undefined-Null-（ES6新增了-symbol）"><a href="#Number-String-Boolean-Undefined-Null-（ES6新增了-symbol）" class="headerlink" title="Number String Boolean Undefined Null  （ES6新增了 symbol）"></a>Number String Boolean Undefined Null  （ES6新增了 symbol）</h4><h3 id="引用数据类型-也称为引用值"><a href="#引用数据类型-也称为引用值" class="headerlink" title="引用数据类型 也称为引用值"></a>引用数据类型 也称为引用值</h3><h4 id="Object-array-function-date-RegExp"><a href="#Object-array-function-date-RegExp" class="headerlink" title="Object array function date RegExp"></a>Object array function date RegExp</h4><h1 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h1><h3 id="在JavaScript中-号不仅仅是加的意思-还可以是字符串拼接"><a href="#在JavaScript中-号不仅仅是加的意思-还可以是字符串拼接" class="headerlink" title="在JavaScript中   +   号不仅仅是加的意思 还可以是字符串拼接"></a>在JavaScript中   +   号不仅仅是加的意思 还可以是字符串拼接</h3><h3 id="任何数据类型的-字符串结果都是字符串"><a href="#任何数据类型的-字符串结果都是字符串" class="headerlink" title="任何数据类型的 + 字符串结果都是字符串"></a>任何数据类型的 + 字符串结果都是字符串</h3><h3 id="表示除法"><a href="#表示除法" class="headerlink" title="/ 表示除法"></a>/ 表示除法</h3><h3 id="0-0-会得到-NaN（Not-a-Number）"><a href="#0-0-会得到-NaN（Not-a-Number）" class="headerlink" title="0 / 0 会得到 NaN（Not a Number）"></a>0 / 0 会得到 NaN（Not a Number）</h3><h3 id="NaN与包括自己在内的任何东西都不相等"><a href="#NaN与包括自己在内的任何东西都不相等" class="headerlink" title="NaN与包括自己在内的任何东西都不相等"></a>NaN与包括自己在内的任何东西都不相等</h3><h3 id="1-0-gt-infinity-gt-正无穷"><a href="#1-0-gt-infinity-gt-正无穷" class="headerlink" title="1 / 0 -&gt; infinity -&gt; 正无穷"></a>1 / 0 -&gt; infinity -&gt; 正无穷</h3><h3 id="1-0-infinity-gt-负无穷"><a href="#1-0-infinity-gt-负无穷" class="headerlink" title="-1 / 0 -infinity -&gt; 负无穷"></a>-1 / 0 -infinity -&gt; 负无穷</h3><h2 id="比较运算符"><a href="#比较运算符" class="headerlink" title="比较运算符"></a>比较运算符</h2><h2 id="包括-gt-lt-gt-lt"><a href="#包括-gt-lt-gt-lt" class="headerlink" title="包括 &gt; &lt; &gt;= &lt;= = == === != !=="></a>包括 &gt; &lt; &gt;= &lt;= = == === != !==</h2><h2 id="如果是字符串就比较-ASCII-值"><a href="#如果是字符串就比较-ASCII-值" class="headerlink" title="如果是字符串就比较 ASCII 值"></a>如果是字符串就比较 ASCII 值</h2><h2 id="比较运算符-1"><a href="#比较运算符-1" class="headerlink" title="比较运算符"></a>比较运算符</h2><h2 id="逻辑运算符一定为的值"><a href="#逻辑运算符一定为的值" class="headerlink" title="逻辑运算符一定为的值"></a>逻辑运算符一定为的值</h2><h2 id="undefined-null-NaN-“”-0-false-为假，其余的都为真"><a href="#undefined-null-NaN-“”-0-false-为假，其余的都为真" class="headerlink" title="undefined null NaN “” 0 false 为假，其余的都为真"></a>undefined null NaN “” 0 false 为假，其余的都为真</h2>
+                                                                        
+                                    </div>
+                                    <footer class="article-footer">
+                                        <a data-url="http://yoursite.com/2020/04/16/chrome/" data-id="ck92bqg360001gsu95xky4nb7" class="article-share-link">
+                                            Share
+                                        </a>
+                                        
+                                    </footer>
+
+    </div>
+
+    
+        
+  <nav class="article-nav">
+    
+      <a href="/2020/04/16/for/" class="article-nav-link">
+        <strong class="article-nav-caption">Newer</strong>
+        <div class="article-nav-title">
+          
+            数组
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2020/04/16/hello-world/" class="article-nav-link">
+        <strong class="article-nav-caption">Older</strong>
+        <div class="article-nav-title">Hello World</div>
+      </a>
+    
+  </nav>
+
+
+            
+
+                
+                    
+                        
+                            
+
+</article>
+</section>
+  <footer class="footer">
+  <div class="outer">
+    <div class="float-right">
+      <ul class="list-inline">
+  
+    <li><i class="fe fe-smile-alt"></i> <span id="busuanzi_value_site_uv"></span></li>
+  
+    <li><i class="fe fe-bookmark"></i> <span id="busuanzi_value_page_pv"></span></li>
+  
+</ul>
+    </div>
+    <ul class="list-inline">
+      <li>&copy; 2020 等风也等你</li>
+      <li>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></li>
+      <li>Theme  <a href="https://github.com/zhwangart/hexo-theme-ocean" target="_blank" rel="noopener">Ocean</a></li>
+    </ul>
+  </div>
+</footer>
+
+</main>
+<aside class="sidebar">
+  <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+    <div class="logo">
+      <a href="/"><img src="/images/hexo.svg" alt="等风也等你"></a>
+    </div>
+  
+  <ul class="nav nav-main">
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/">Home</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/archives">Archives</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/gallery">Gallery</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/about">About</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/links">Links</a>
+      </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link nav-item-search" title="Search">
+        <i class="fe fe-search"></i>
+        Search
+      </a>
+    </li>
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      <div class="totop" id="totop">
+  <i class="fe fe-rocket"></i>
+</div>
+    </li>
+    <li class="nav-item">
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+</aside>
+
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/jquery.justifiedGallery.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+  
+<script src="/js/tocbot.min.js"></script>
+
+  <script>
+    // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
+    tocbot.init({
+      tocSelector: '.tocbot',
+      contentSelector: '.article-entry',
+      headingSelector: 'h1, h2, h3, h4, h5, h6',
+      hasInnerContainers: true,
+      scrollSmooth: true,
+      positionFixedSelector: '.tocbot',
+      positionFixedClass: 'is-position-fixed',
+      fixedSidebarOffset: 'auto',
+    });
+  </script>
+
+
+
+<script src="/js/ocean.js"></script>
+
+
+
+</body>
+</html>
