@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="使用 Vue 进行图片展示项目的开发   使用 vue-cli 脚手架工具及进行开发1、首先全局装 vue-cli 使用  npm install -g @vue&#x2F;cli2、检查 vue-cli 版本的命令  vue –version3、遇到 ‘webpack-dev-server’ 不是内部或外部命令，也不是可运行的程序 的问题，原因一般是一些依赖没有成功安装导致的4、解决：将 node_mod">
+<meta property="og:type" content="article">
+<meta property="og:title" content="VUE项目图片展示">
+<meta property="og:url" content="http://yoursite.com/2020/04/16/VUE/index.html">
+<meta property="og:site_name" content="等风也等你">
+<meta property="og:description" content="使用 Vue 进行图片展示项目的开发   使用 vue-cli 脚手架工具及进行开发1、首先全局装 vue-cli 使用  npm install -g @vue&#x2F;cli2、检查 vue-cli 版本的命令  vue –version3、遇到 ‘webpack-dev-server’ 不是内部或外部命令，也不是可运行的程序 的问题，原因一般是一些依赖没有成功安装导致的4、解决：将 node_mod">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-04-16T05:42:56.524Z">
+<meta property="article:modified_time" content="2020-04-16T05:56:47.435Z">
+<meta property="article:author" content="等风也等你">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2020/04/16/VUE/"/>
+
+
+
+
+
+  <title>VUE项目图片展示 | 等风也等你</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">等风也等你</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/16/VUE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="等风也等你">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="等风也等你">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">VUE项目图片展示</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-04-16T13:42:56+08:00">
+                2020-04-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="使用-Vue-进行图片展示项目的开发-使用-vue-cli-脚手架工具及进行开发"><a href="#使用-Vue-进行图片展示项目的开发-使用-vue-cli-脚手架工具及进行开发" class="headerlink" title="使用 Vue 进行图片展示项目的开发   使用 vue-cli 脚手架工具及进行开发"></a>使用 Vue 进行图片展示项目的开发   使用 vue-cli 脚手架工具及进行开发</h2><h2 id="1、首先全局装-vue-cli-使用-npm-install-g-vue-cli"><a href="#1、首先全局装-vue-cli-使用-npm-install-g-vue-cli" class="headerlink" title="1、首先全局装 vue-cli 使用  npm install -g @vue/cli"></a>1、首先全局装 vue-cli 使用  npm install -g @vue/cli</h2><h2 id="2、检查-vue-cli-版本的命令-vue-–version"><a href="#2、检查-vue-cli-版本的命令-vue-–version" class="headerlink" title="2、检查 vue-cli 版本的命令  vue –version"></a>2、检查 vue-cli 版本的命令  vue –version</h2><h2 id="3、遇到-‘webpack-dev-server’-不是内部或外部命令，也不是可运行的程序-的问题，原因一般是一些依赖没有成功安装导致的"><a href="#3、遇到-‘webpack-dev-server’-不是内部或外部命令，也不是可运行的程序-的问题，原因一般是一些依赖没有成功安装导致的" class="headerlink" title="3、遇到 ‘webpack-dev-server’ 不是内部或外部命令，也不是可运行的程序 的问题，原因一般是一些依赖没有成功安装导致的"></a>3、遇到 ‘webpack-dev-server’ 不是内部或外部命令，也不是可运行的程序 的问题，原因一般是一些依赖没有成功安装导致的</h2><h2 id="4、解决：将-node-modules-文件夹删除之后-再重新-npm-install-安装一次"><a href="#4、解决：将-node-modules-文件夹删除之后-再重新-npm-install-安装一次" class="headerlink" title="4、解决：将 node_modules 文件夹删除之后  再重新 npm install 安装一次"></a>4、解决：将 node_modules 文件夹删除之后  再重新 npm install 安装一次</h2><h2 id="初始化项目-vue-init-webpack-travel"><a href="#初始化项目-vue-init-webpack-travel" class="headerlink" title="初始化项目     vue init webpack travel"></a>初始化项目     vue init webpack travel</h2><h1 id="单页面应用和多页面应用的区别-优缺点"><a href="#单页面应用和多页面应用的区别-优缺点" class="headerlink" title="单页面应用和多页面应用的区别 优缺点"></a>单页面应用和多页面应用的区别 优缺点</h1><h2 id="单页面应用："><a href="#单页面应用：" class="headerlink" title="单页面应用："></a>单页面应用：</h2><h3 id="首屏加载时间相对较长（一次性将页面的所有数据请求回来）缺点"><a href="#首屏加载时间相对较长（一次性将页面的所有数据请求回来）缺点" class="headerlink" title="首屏加载时间相对较长（一次性将页面的所有数据请求回来）缺点"></a>首屏加载时间相对较长（一次性将页面的所有数据请求回来）缺点</h3><h3 id="SEO-效果差-缺点"><a href="#SEO-效果差-缺点" class="headerlink" title="SEO 效果差  缺点"></a>SEO 效果差  缺点</h3><h3 id="页面切换速度快-（不会再重复进行-http-请求）-优点"><a href="#页面切换速度快-（不会再重复进行-http-请求）-优点" class="headerlink" title="页面切换速度快 （不会再重复进行 http 请求） 优点"></a>页面切换速度快 （不会再重复进行 http 请求） 优点</h3><h2 id="多页面应用"><a href="#多页面应用" class="headerlink" title="多页面应用"></a>多页面应用</h2><h3 id="首屏加载时间短-只发送当前页面的http请求-优点"><a href="#首屏加载时间短-只发送当前页面的http请求-优点" class="headerlink" title="首屏加载时间短 只发送当前页面的http请求  优点"></a>首屏加载时间短 只发送当前页面的http请求  优点</h3><h3 id="SEO效果好-优点"><a href="#SEO效果好-优点" class="headerlink" title="SEO效果好   优点"></a>SEO效果好   优点</h3><h3 id="页面切换速度相对较慢-（需要发送-http-请求）-缺点"><a href="#页面切换速度相对较慢-（需要发送-http-请求）-缺点" class="headerlink" title="页面切换速度相对较慢 （需要发送 http 请求） 缺点"></a>页面切换速度相对较慢 （需要发送 http 请求） 缺点</h3><h2 id="需要引入-reset-css-和-border-css-文件，放入-src-目录下-assets-文件夹下style文件夹"><a href="#需要引入-reset-css-和-border-css-文件，放入-src-目录下-assets-文件夹下style文件夹" class="headerlink" title="需要引入  reset.css 和 border.css 文件，放入 src 目录下 assets 文件夹下style文件夹"></a>需要引入  reset.css 和 border.css 文件，放入 src 目录下 assets 文件夹下style文件夹</h2><h2 id="reset-css-用来解决不同手机样式显示不一样问题"><a href="#reset-css-用来解决不同手机样式显示不一样问题" class="headerlink" title="reset.css 用来解决不同手机样式显示不一样问题"></a>reset.css 用来解决不同手机样式显示不一样问题</h2><h2 id="border-css-用来解决移动端-1px-的问题"><a href="#border-css-用来解决移动端-1px-的问题" class="headerlink" title="border.css 用来解决移动端 1px 的问题"></a>border.css 用来解决移动端 1px 的问题</h2><h2 id="引入-fastclick-来解决-click-事件-300ms-延迟问题-npm-install-fastclick"><a href="#引入-fastclick-来解决-click-事件-300ms-延迟问题-npm-install-fastclick" class="headerlink" title="引入 fastclick 来解决 click 事件 300ms 延迟问题  npm install fastclick"></a>引入 fastclick 来解决 click 事件 300ms 延迟问题  npm install fastclick</h2><h2 id="需要在-src-目录下的-main-js-中引入相应文件（reset-css-border-css-fastclick）"><a href="#需要在-src-目录下的-main-js-中引入相应文件（reset-css-border-css-fastclick）" class="headerlink" title="需要在 src 目录下的 main.js 中引入相应文件（reset.css border.css fastclick）"></a>需要在 src 目录下的 main.js 中引入相应文件（reset.css border.css fastclick）</h2><h2 id="import-Fastclick-from-‘fastclick’"><a href="#import-Fastclick-from-‘fastclick’" class="headerlink" title="import Fastclick from ‘fastclick’;"></a>import Fastclick from ‘fastclick’;</h2><h2 id="import-‘-assets-style-reset-css’"><a href="#import-‘-assets-style-reset-css’" class="headerlink" title="import ‘./assets/style/reset.css’;"></a>import ‘./assets/style/reset.css’;</h2><h2 id="import-‘-assets-style-border-css’"><a href="#import-‘-assets-style-border-css’" class="headerlink" title="import ‘./assets/style/border.css’;"></a>import ‘./assets/style/border.css’;</h2><h2 id="import-‘-assets-style-iconfont-css’"><a href="#import-‘-assets-style-iconfont-css’" class="headerlink" title="import ‘./assets/style/iconfont.css’;"></a>import ‘./assets/style/iconfont.css’;</h2><h1 id="需要使用到-iconfont-图标库-也需要将对应的-css-文件引入"><a href="#需要使用到-iconfont-图标库-也需要将对应的-css-文件引入" class="headerlink" title="需要使用到 iconfont 图标库 也需要将对应的 css 文件引入"></a>需要使用到 iconfont 图标库 也需要将对应的 css 文件引入</h1><h2 id="iconfont-css文件-放在-src-目录下的-assets-文件夹-style-里"><a href="#iconfont-css文件-放在-src-目录下的-assets-文件夹-style-里" class="headerlink" title="iconfont.css文件 放在 src 目录下的 assets 文件夹 style 里"></a>iconfont.css文件 放在 src 目录下的 assets 文件夹 style 里</h2><h2 id="从-iconfont-官网下载下来的压缩包-需要用到的字体文件后缀有四个-ttf-svg-eot-woff"><a href="#从-iconfont-官网下载下来的压缩包-需要用到的字体文件后缀有四个-ttf-svg-eot-woff" class="headerlink" title="从 iconfont 官网下载下来的压缩包  需要用到的字体文件后缀有四个  .ttf .svg .eot .woff"></a>从 iconfont 官网下载下来的压缩包  需要用到的字体文件后缀有四个  .ttf .svg .eot .woff</h2><h2 id="iconfont使用方法"><a href="#iconfont使用方法" class="headerlink" title="iconfont使用方法"></a>iconfont使用方法</h2><h3 id="一般使用-或者-标签来承载图标，给-添加类名-iconfont"><a href="#一般使用-或者-标签来承载图标，给-添加类名-iconfont" class="headerlink" title="一般使用  或者  标签来承载图标，给 /  添加类名 iconfont"></a>一般使用 <span> 或者 <i> 标签来承载图标，给<span> / <i> 添加类名 iconfont</h3><h3 id="到-iconfont-官网复制对应图标的唯一标识-xe870-填写在内容中"><a href="#到-iconfont-官网复制对应图标的唯一标识-xe870-填写在内容中" class="headerlink" title="到 iconfont 官网复制对应图标的唯一标识 &#xe870; 填写在内容中"></a>到 iconfont 官网复制对应图标的唯一标识 &#xe870; 填写在内容中</h3><h3 id="xe870"><a href="#xe870" class="headerlink" title="&#xe870;"></a><span class="iconfont">&#xe870;</span></h3><h3 id="每次增加图标都要重新下载一次并且重新替换-5个文件（-ttf-svg-eot-woff-iconfont-css）"><a href="#每次增加图标都要重新下载一次并且重新替换-5个文件（-ttf-svg-eot-woff-iconfont-css）" class="headerlink" title="每次增加图标都要重新下载一次并且重新替换 5个文件（.ttf .svg .eot .woff iconfont.css）"></a>每次增加图标都要重新下载一次并且重新替换 5个文件（.ttf .svg .eot .woff iconfont.css）</h3><h1 id="使用-gitee-来管理项目，在gitee上创建项目"><a href="#使用-gitee-来管理项目，在gitee上创建项目" class="headerlink" title="使用 gitee 来管理项目，在gitee上创建项目"></a>使用 gitee 来管理项目，在gitee上创建项目</h1><h2 id="git使用到的命令"><a href="#git使用到的命令" class="headerlink" title="git使用到的命令"></a>git使用到的命令</h2><h3 id="1、git-add-将改动的文件加入到临时仓库"><a href="#1、git-add-将改动的文件加入到临时仓库" class="headerlink" title="1、git add .      将改动的文件加入到临时仓库"></a>1、git add .      将改动的文件加入到临时仓库</h3><h3 id="2、git-commit-m-“提交的描述”-将临时仓库的文件加入仓库"><a href="#2、git-commit-m-“提交的描述”-将临时仓库的文件加入仓库" class="headerlink" title="2、git commit -m “提交的描述”        将临时仓库的文件加入仓库"></a>2、git commit -m “提交的描述”        将临时仓库的文件加入仓库</h3><h3 id="3、git-push-将仓库中的文件推送到gitee上同步"><a href="#3、git-push-将仓库中的文件推送到gitee上同步" class="headerlink" title="3、git push      将仓库中的文件推送到gitee上同步"></a>3、git push      将仓库中的文件推送到gitee上同步</h3><h3 id="4、在-gitee-上创建分支，开发都是在分支上开发，不是在主分支开发（默认的是-master）"><a href="#4、在-gitee-上创建分支，开发都是在分支上开发，不是在主分支开发（默认的是-master）" class="headerlink" title="4、在 gitee 上创建分支，开发都是在分支上开发，不是在主分支开发（默认的是 master）"></a>4、在 gitee 上创建分支，开发都是在分支上开发，不是在主分支开发（默认的是 master）</h3><h3 id="5、在本地使用-git-pull-同步远程仓库和本地的变化"><a href="#5、在本地使用-git-pull-同步远程仓库和本地的变化" class="headerlink" title="5、在本地使用 git pull 同步远程仓库和本地的变化"></a>5、在本地使用 git pull 同步远程仓库和本地的变化</h3><h3 id="6、git-checkot-切换分支"><a href="#6、git-checkot-切换分支" class="headerlink" title="6、git checkot   切换分支"></a>6、git checkot <name>  切换分支</h3><h3 id="7、git-branch-查看所有分支"><a href="#7、git-branch-查看所有分支" class="headerlink" title="7、git branch          查看所有分支"></a>7、git branch          查看所有分支</h3><h3 id="8、git-branch-d-删除分支-是要删除分支的名称"><a href="#8、git-branch-d-删除分支-是要删除分支的名称" class="headerlink" title="8、git branch -d     删除分支  是要删除分支的名称"></a>8、git branch -d <name>    删除分支 <name> 是要删除分支的名称</h3><h3 id="9、git-merge-合并某分支到当前分支，一般是切换到-master-分支再合并上去"><a href="#9、git-merge-合并某分支到当前分支，一般是切换到-master-分支再合并上去" class="headerlink" title="9、git merge      合并某分支到当前分支，一般是切换到 master 分支再合并上去"></a>9、git merge <name>     合并某分支到当前分支，一般是切换到 master 分支再合并上去</h3><h1 id="轮播图使用-swiper"><a href="#轮播图使用-swiper" class="headerlink" title="轮播图使用 swiper"></a>轮播图使用 swiper</h1><h1 id="vue轮播插件-vue-awesome-swiper"><a href="#vue轮播插件-vue-awesome-swiper" class="headerlink" title="vue轮播插件   vue-awesome-swiper"></a>vue轮播插件   vue-awesome-swiper</h1><h2 id="在组件的-style-中写-scoped-来封闭作用域，不影响外界作用域"><a href="#在组件的-style-中写-scoped-来封闭作用域，不影响外界作用域" class="headerlink" title="在组件的 style 中写 scoped 来封闭作用域，不影响外界作用域"></a>在组件的 style 中写 scoped 来封闭作用域，不影响外界作用域</h2><h2 id="如果当前组件使用到了全局样式，需要用-gt-gt-gt-来穿透或者-deep-gt-gt-gt-有一点点问题"><a href="#如果当前组件使用到了全局样式，需要用-gt-gt-gt-来穿透或者-deep-gt-gt-gt-有一点点问题" class="headerlink" title="如果当前组件使用到了全局样式，需要用  &gt;&gt;&gt;  来穿透或者  /deep/   &gt;&gt;&gt; 有一点点问题"></a>如果当前组件使用到了全局样式，需要用  &gt;&gt;&gt;  来穿透或者  /deep/   &gt;&gt;&gt; 有一点点问题</h2><h2 id="设置元素的宽高比，将-height-设置为-0，用-padding-bottom-设置百分比（相对于父级的宽度来决定，例如父级宽度-100px-，子级padding-bottom-50-那就是-50px）屏幕变宽了也能保持高度跟随变化"><a href="#设置元素的宽高比，将-height-设置为-0，用-padding-bottom-设置百分比（相对于父级的宽度来决定，例如父级宽度-100px-，子级padding-bottom-50-那就是-50px）屏幕变宽了也能保持高度跟随变化" class="headerlink" title="设置元素的宽高比，将 height 设置为 0，用 padding-bottom 设置百分比（相对于父级的宽度来决定，例如父级宽度 100px ，子级padding-bottom: 50%;  那就是 50px）屏幕变宽了也能保持高度跟随变化"></a>设置元素的宽高比，将 height 设置为 0，用 padding-bottom 设置百分比（相对于父级的宽度来决定，例如父级宽度 100px ，子级padding-bottom: 50%;  那就是 50px）屏幕变宽了也能保持高度跟随变化</h2><h2 id="利用二维数组分页"><a href="#利用二维数组分页" class="headerlink" title="利用二维数组分页"></a>利用二维数组分页</h2><h2 id="let-pages"><a href="#let-pages" class="headerlink" title="let pages = [[], [], []];"></a>let pages = [[], [], []];</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">computed: &#123;</span><br><span class="line">pages: <span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line"><span class="built_in">let</span> pages = [];</span><br><span class="line">this.icon.forEach(item, index =&gt; &#123;</span><br><span class="line"><span class="built_in">let</span> page = Math.floor(index / 8);    //将前8个都加入到pages数组中的第一项中</span><br><span class="line"><span class="keyword">if</span>(!pages[page])&#123;</span><br><span class="line">pages = [];</span><br><span class="line">&#125;</span><br><span class="line">pages[page].push(item);</span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">return</span> pages;</span><br><span class="line">&#125;</span><br><span class="line">&#125;        //在外层循环pages ，利用双层循环</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/04/16/%E4%B8%89%E8%A7%92%E5%BD%A2%E7%94%BB%E6%B3%95/" rel="next" title="三角形画法 多边形画法">
+                <i class="fa fa-chevron-left"></i> 三角形画法 多边形画法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="等风也等你" />
+          <p class="site-author-name" itemprop="name">等风也等你</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#使用-Vue-进行图片展示项目的开发-使用-vue-cli-脚手架工具及进行开发"><span class="nav-number">1.</span> <span class="nav-text">使用 Vue 进行图片展示项目的开发   使用 vue-cli 脚手架工具及进行开发</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1、首先全局装-vue-cli-使用-npm-install-g-vue-cli"><span class="nav-number">2.</span> <span class="nav-text">1、首先全局装 vue-cli 使用  npm install -g @vue&#x2F;cli</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、检查-vue-cli-版本的命令-vue-–version"><span class="nav-number">3.</span> <span class="nav-text">2、检查 vue-cli 版本的命令  vue –version</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、遇到-‘webpack-dev-server’-不是内部或外部命令，也不是可运行的程序-的问题，原因一般是一些依赖没有成功安装导致的"><span class="nav-number">4.</span> <span class="nav-text">3、遇到 ‘webpack-dev-server’ 不是内部或外部命令，也不是可运行的程序 的问题，原因一般是一些依赖没有成功安装导致的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4、解决：将-node-modules-文件夹删除之后-再重新-npm-install-安装一次"><span class="nav-number">5.</span> <span class="nav-text">4、解决：将 node_modules 文件夹删除之后  再重新 npm install 安装一次</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#初始化项目-vue-init-webpack-travel"><span class="nav-number">6.</span> <span class="nav-text">初始化项目     vue init webpack travel</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#单页面应用和多页面应用的区别-优缺点"><span class="nav-number"></span> <span class="nav-text">单页面应用和多页面应用的区别 优缺点</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#单页面应用："><span class="nav-number">1.</span> <span class="nav-text">单页面应用：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#首屏加载时间相对较长（一次性将页面的所有数据请求回来）缺点"><span class="nav-number">1.1.</span> <span class="nav-text">首屏加载时间相对较长（一次性将页面的所有数据请求回来）缺点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SEO-效果差-缺点"><span class="nav-number">1.2.</span> <span class="nav-text">SEO 效果差  缺点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#页面切换速度快-（不会再重复进行-http-请求）-优点"><span class="nav-number">1.3.</span> <span class="nav-text">页面切换速度快 （不会再重复进行 http 请求） 优点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多页面应用"><span class="nav-number">2.</span> <span class="nav-text">多页面应用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#首屏加载时间短-只发送当前页面的http请求-优点"><span class="nav-number">2.1.</span> <span class="nav-text">首屏加载时间短 只发送当前页面的http请求  优点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SEO效果好-优点"><span class="nav-number">2.2.</span> <span class="nav-text">SEO效果好   优点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#页面切换速度相对较慢-（需要发送-http-请求）-缺点"><span class="nav-number">2.3.</span> <span class="nav-text">页面切换速度相对较慢 （需要发送 http 请求） 缺点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#需要引入-reset-css-和-border-css-文件，放入-src-目录下-assets-文件夹下style文件夹"><span class="nav-number">3.</span> <span class="nav-text">需要引入  reset.css 和 border.css 文件，放入 src 目录下 assets 文件夹下style文件夹</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#reset-css-用来解决不同手机样式显示不一样问题"><span class="nav-number">4.</span> <span class="nav-text">reset.css 用来解决不同手机样式显示不一样问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#border-css-用来解决移动端-1px-的问题"><span class="nav-number">5.</span> <span class="nav-text">border.css 用来解决移动端 1px 的问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#引入-fastclick-来解决-click-事件-300ms-延迟问题-npm-install-fastclick"><span class="nav-number">6.</span> <span class="nav-text">引入 fastclick 来解决 click 事件 300ms 延迟问题  npm install fastclick</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#需要在-src-目录下的-main-js-中引入相应文件（reset-css-border-css-fastclick）"><span class="nav-number">7.</span> <span class="nav-text">需要在 src 目录下的 main.js 中引入相应文件（reset.css border.css fastclick）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#import-Fastclick-from-‘fastclick’"><span class="nav-number">8.</span> <span class="nav-text">import Fastclick from ‘fastclick’;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#import-‘-assets-style-reset-css’"><span class="nav-number">9.</span> <span class="nav-text">import ‘.&#x2F;assets&#x2F;style&#x2F;reset.css’;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#import-‘-assets-style-border-css’"><span class="nav-number">10.</span> <span class="nav-text">import ‘.&#x2F;assets&#x2F;style&#x2F;border.css’;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#import-‘-assets-style-iconfont-css’"><span class="nav-number">11.</span> <span class="nav-text">import ‘.&#x2F;assets&#x2F;style&#x2F;iconfont.css’;</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#需要使用到-iconfont-图标库-也需要将对应的-css-文件引入"><span class="nav-number"></span> <span class="nav-text">需要使用到 iconfont 图标库 也需要将对应的 css 文件引入</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#iconfont-css文件-放在-src-目录下的-assets-文件夹-style-里"><span class="nav-number">1.</span> <span class="nav-text">iconfont.css文件 放在 src 目录下的 assets 文件夹 style 里</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#从-iconfont-官网下载下来的压缩包-需要用到的字体文件后缀有四个-ttf-svg-eot-woff"><span class="nav-number">2.</span> <span class="nav-text">从 iconfont 官网下载下来的压缩包  需要用到的字体文件后缀有四个  .ttf .svg .eot .woff</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#iconfont使用方法"><span class="nav-number">3.</span> <span class="nav-text">iconfont使用方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一般使用-或者-标签来承载图标，给-添加类名-iconfont"><span class="nav-number">3.1.</span> <span class="nav-text">一般使用  或者  标签来承载图标，给 &#x2F;  添加类名 iconfont</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#到-iconfont-官网复制对应图标的唯一标识-xe870-填写在内容中"><span class="nav-number">3.2.</span> <span class="nav-text">到 iconfont 官网复制对应图标的唯一标识 &amp;#xe870; 填写在内容中</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#xe870"><span class="nav-number">3.3.</span> <span class="nav-text">&amp;#xe870;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#每次增加图标都要重新下载一次并且重新替换-5个文件（-ttf-svg-eot-woff-iconfont-css）"><span class="nav-number">3.4.</span> <span class="nav-text">每次增加图标都要重新下载一次并且重新替换 5个文件（.ttf .svg .eot .woff iconfont.css）</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用-gitee-来管理项目，在gitee上创建项目"><span class="nav-number"></span> <span class="nav-text">使用 gitee 来管理项目，在gitee上创建项目</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#git使用到的命令"><span class="nav-number">1.</span> <span class="nav-text">git使用到的命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、git-add-将改动的文件加入到临时仓库"><span class="nav-number">1.1.</span> <span class="nav-text">1、git add .      将改动的文件加入到临时仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、git-commit-m-“提交的描述”-将临时仓库的文件加入仓库"><span class="nav-number">1.2.</span> <span class="nav-text">2、git commit -m “提交的描述”        将临时仓库的文件加入仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、git-push-将仓库中的文件推送到gitee上同步"><span class="nav-number">1.3.</span> <span class="nav-text">3、git push      将仓库中的文件推送到gitee上同步</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4、在-gitee-上创建分支，开发都是在分支上开发，不是在主分支开发（默认的是-master）"><span class="nav-number">1.4.</span> <span class="nav-text">4、在 gitee 上创建分支，开发都是在分支上开发，不是在主分支开发（默认的是 master）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5、在本地使用-git-pull-同步远程仓库和本地的变化"><span class="nav-number">1.5.</span> <span class="nav-text">5、在本地使用 git pull 同步远程仓库和本地的变化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6、git-checkot-切换分支"><span class="nav-number">1.6.</span> <span class="nav-text">6、git checkot   切换分支</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7、git-branch-查看所有分支"><span class="nav-number">1.7.</span> <span class="nav-text">7、git branch          查看所有分支</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8、git-branch-d-删除分支-是要删除分支的名称"><span class="nav-number">1.8.</span> <span class="nav-text">8、git branch -d     删除分支  是要删除分支的名称</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9、git-merge-合并某分支到当前分支，一般是切换到-master-分支再合并上去"><span class="nav-number">1.9.</span> <span class="nav-text">9、git merge      合并某分支到当前分支，一般是切换到 master 分支再合并上去</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#轮播图使用-swiper"><span class="nav-number"></span> <span class="nav-text">轮播图使用 swiper</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#vue轮播插件-vue-awesome-swiper"><span class="nav-number"></span> <span class="nav-text">vue轮播插件   vue-awesome-swiper</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#在组件的-style-中写-scoped-来封闭作用域，不影响外界作用域"><span class="nav-number">1.</span> <span class="nav-text">在组件的 style 中写 scoped 来封闭作用域，不影响外界作用域</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如果当前组件使用到了全局样式，需要用-gt-gt-gt-来穿透或者-deep-gt-gt-gt-有一点点问题"><span class="nav-number">2.</span> <span class="nav-text">如果当前组件使用到了全局样式，需要用  &gt;&gt;&gt;  来穿透或者  &#x2F;deep&#x2F;   &gt;&gt;&gt; 有一点点问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设置元素的宽高比，将-height-设置为-0，用-padding-bottom-设置百分比（相对于父级的宽度来决定，例如父级宽度-100px-，子级padding-bottom-50-那就是-50px）屏幕变宽了也能保持高度跟随变化"><span class="nav-number">3.</span> <span class="nav-text">设置元素的宽高比，将 height 设置为 0，用 padding-bottom 设置百分比（相对于父级的宽度来决定，例如父级宽度 100px ，子级padding-bottom: 50%;  那就是 50px）屏幕变宽了也能保持高度跟随变化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#利用二维数组分页"><span class="nav-number">4.</span> <span class="nav-text">利用二维数组分页</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#let-pages"><span class="nav-number">5.</span> <span class="nav-text">let pages &#x3D; [[], [], []];</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">等风也等你</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io" target="_blank" rel="noopener">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="noopener">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
